@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedido de Comida</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #fdfcfb, #e2d1c3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .logo-container {
+      margin-top: 40px;
+    }
+
+    img.logo {
+      max-width: 120px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    img.logo:hover {
+      transform: scale(1.08);
+    }
+
+    .contenedor {
+      width: 100%;
+      max-width: 650px;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      color: #461cb9;
+      margin: 20px 0;
+      font-weight: 800;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+      background: #f4f3f8;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      margin-bottom: 80px;
+      box-sizing: border-box;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #1f2937;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 25px;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      font-size: 1rem;
+      background-color: #f9fafb;
+      transition: 0.3s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #7244ef;
+      background-color: #e6e1f8;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(91, 68, 239, 0.2);
+    }
+
+    .menu-item {
+      background: #f3f2fe;
+      border: 1px solid #d8cafe;
+      border-radius: 15px;
+      padding: 16px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s;
+    }
+
+    .menu-item:hover {
+      transform: scale(1.015);
+    }
+
+    .menu-item::before {
+      content: "";
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+    }
+    /* --- Imágenes específicas por clase --- */
+    .muzza::before {
+      background-image: url('imagenes/pizza.jpeg');
+    }
+
+    .donas::before {
+      background-image: url('imagenes/donas.jpeg');
+    }
+
+    .cola::before {
+      background-image: url('imagenes/manaoscola.jpg');
+    }
+
+    .pomelo::before {
+      background-image: url('imagenes/manaospomelo.jpg');
+    }
+
+    .manzana::before {
+      background-image: url('imagenes/manaosmanzana.jpg');
+    }
+
+    .vasogaseosa::before {
+      background-image: url('imagenes/vasogaseosa.jpg');
+    }
+
+    .vasocafe::before {
+      background-image: url('imagenes/vasocafe.jpg');
+    }
+
+    .vasocafe-donas::before {
+      background-image: url('imagenes/vasocafe+donas.jpg');
+    }
+
+    .pizza-vaso::before {
+      background-image: url('imagenes/pizza+vaso.jpg');
+    }
+
+    /* --- Estilos generales --- */
+    button,
+    input[type="submit"] {
+      background: linear-gradient(to right, #6144ef, #4e26dc);
+      color: rgba(248, 247, 254, 0.995);
+      padding: 14px 26px;
+      border: none;
+      border-radius: 14px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+      width: 100%;
+    }
+
+    button:hover,
+    input[type="submit"]:hover {
+      background: linear-gradient(to right, #5d26dc, #321b99);
+      transform: scale(1.03);
+    }
+
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: rgb(240, 239, 253);
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+      transition: 0.3s ease;
+      text-decoration: none;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #1ebe5b;
+      transform: scale(1.1);
+    }
+
+    #total {
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #361cb9;
+      font-size: 1.1rem;
+      text-align: right;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      img.logo {
+        max-width: 90px;
+      }
+
+      .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-item::before {
+        width: 100%;
+        height: 150px;
+        border-radius: 12px;
+      }
+
+      .whatsapp-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+      }
+
+      button {
+        font-size: 1rem;
+      }
+    }
+</style>
+   
+ </head>
+ <body class="fade-in">  
+ <a href="https://wa.me/5493764857510" class="whatsapp-btn" target="_blank">🟢</a>
+ <div class="logo-container">  
+ <img src="imagenes/logo.jpeg" alt="Gracia Sublime" class="logo">  
+ </div>
+ <div class="contenedor">
+ </form>
+</div>
+   <h1>Pedido de Comida</h1>
+    <form id="pedidoForm">
+      <label>Nombre:
+        <input type="text" id="nombre" required>
+      </label>
+
+      <label>Mesa:
+        <input type="text" id="mesa" required>
+      </label>
+
+     <h2>Comidas</h2>
+<div class="menu-grid">
+  <div class="menu-item muzza">
+    Muzza - $8.000
+    <input type="number" class="cantidad" data-item="Muzza" data-precio="8000" min="0" value="0">
+  </div>
+
+  <div class="menu-item donas">
+    Donas - 4 Por $1.500
+    <input type="number" class="cantidad" data-item="Donas" data-precio="1500" min="0" value="0">
+  </div>
+</div>
+
+<h2>Bebidas: Gaseosa Mananos 3lts - $2.000</h2>
+<div class="menu-grid">
+  <div class="menu-item cola">
+    Cola
+    <input type="number" class="cantidad" data-item="Cola" data-precio="2000" min="0" value="0">
+  </div>
+
+  <div class="menu-item pomelo">
+    Pomelo
+    <input type="number" class="cantidad" data-item="Pomelo" data-precio="2000" min="0" value="0">
+  </div>
+
+  <div class="menu-item manzana">
+    Manzana
+    <input type="number" class="cantidad" data-item="Manzana" data-precio="2000" min="0" value="0">
+  </div>
+</div>
+
+<h3>Vao de Gaseosa - $1.000</h3>
+<div class="menu-item vasogaseosa">
+  <label>Sabor:
+    <select class="vaso-gaseosa">
+      <option value="Cola">Cola</option>
+      <option value="Pomelo">Pomelo</option>
+      <option value="Manzana">Manzana</option>
+    </select>
+  </label>
+  <input type="number" class="cantidad" data-item="Vaso de Gaseosa" data-precio="1000" min="0" value="0">
+</div>
+
+<h3>Cafe - $1.000</h3>
+<div class="menu-grid">
+  <div class="menu-item vasocafe">
+    Vaso De Café - $1.000
+    <input type="number" class="cantidad" data-item="Vaso De Café" data-precio="1000" min="0" value="0">
+  </div>
+</div>
+
+<h2>Promos</h2>
+<div class="menu-grid">
+  <div class="menu-item pizza-vaso">
+    <strong>Promo 1:</strong><br>1 Porción De Pizza + 1 Vaso De Gaseosa - <strong>$1.500</strong>
+    <label> Sabor:
+      <select class="sabor-gaseosa">
+        <option value="Cola">Cola</option>
+        <option value="Pomelo">Pomelo</option>
+        <option value="Manzana">Manzana</option>
+      </select>
+    </label>
+    <input type="number" class="cantidad" data-item="Promo Pizza + Gaseosa" data-precio="1500" min="0" value="0">
+  </div>
+
+  <div class="menu-item vasocafe-donas">
+    <strong>Promo 2:</strong><br>1 Vaso De Café + 4 Donas - <strong>$2.500</strong>
+    <input type="number" class="cantidad" data-item="Café + Donas" data-precio="2500" min="0" value="0">
+  </div>
+</div>
+
+      <label>Método de pago:
+        <select id="pago">
+          <option value="Efectivo">Efectivo</option>
+          <option value="MercadoPago">MercadoPago</option>
+        </select>
+      </label>
+
+      <div id="alias" style="display: none;">
+        Alias para pagar: <span>tamara3790</span>
+      </div>
+
+      <div id="total" style="font-weight:bold; color:#1d4ed8;"></div>
+
+      <button type="submit">Enviar Pedido</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('pedidoForm');
+    const aliasDiv = document.getElementById('alias');
+    const metodoPago = document.getElementById('pago');
+    const totalDiv = document.getElementById('total');
+
+    metodoPago.addEventListener('change', () => {
+      aliasDiv.style.display = (metodoPago.value === "Tarjeta" || metodoPago.value === "MercadoPago") ? "block" : "none";
+    });
+
+    function calcularTotal() {
+      let total = 0;
+      document.querySelectorAll('.cantidad').forEach(input => {
+        const cantidad = parseInt(input.value);
+        const precio = parseInt(input.dataset.precio);
+        if (cantidad > 0) {
+          total += cantidad * precio;
+        }
+      });
+      totalDiv.textContent = `Total a pagar: $${total}`;
+      return total;
+    }
+
+    document.querySelectorAll('.cantidad').forEach(input => {
+      input.addEventListener('input', calcularTotal);
+    });
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const nombre = document.getElementById('nombre').value.trim();
+  const mesa = document.getElementById('mesa').value.trim();
+  const pago = metodoPago.value;
+  const aliasTexto = (pago === "Tarjeta" || pago === "MercadoPago") ? "\nAlias: tamara3790" : "";
+
+  if (!nombre || !mesa) {
+    alert("Por favor completá tu nombre y número de mesa.");
+    return;
+  }
+
+  let pedido = "";
+  let total = 0;
+
+  document.querySelectorAll('.cantidad').forEach(input => {
+    const cantidad = parseInt(input.value);
+    const item = input.dataset.item;
+    const precio = parseInt(input.dataset.precio);
+    if (cantidad > 0) {
+      let extraInfo = "";
+
+      // Si es "Vaso de Gaseosa", incluir el sabor
+      if (item === "Vaso de Gaseosa") {
+        const saborSelect = input.parentElement.querySelector('.vaso-gaseosa');
+        if (saborSelect) {
+          extraInfo = ` (Sabor: ${saborSelect.value})`;
+        }
+      }
+
+      pedido += `- ${cantidad} x ${item}${extraInfo} ($${cantidad * precio})\n`;
+      total += cantidad * precio;
+    }
+  });
+
+  if (!pedido) {
+    alert("Seleccioná al menos un producto con cantidad mayor a 0.");
+    return;
+  }
+
+  totalDiv.textContent = `Total a pagar: $${total}`;
+
+  const mensaje = `Hola! Soy ${nombre}, mesa ${mesa}.\nMi pedido es:\n${pedido}Total a pagar: $${total}\nPago con: ${pago}${aliasTexto}`;
+  const url = `https://wa.me/5493764857510?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, '_blank');
+});
+  </script>
+</body>
+</html>
