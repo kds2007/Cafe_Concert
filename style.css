@@ -1,0 +1,246 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #fdf6ee;
+  color: #2c2c2c;
+}
+
+header {
+  background: linear-gradient(90deg, #b22222, #ff7043);
+  color: white;
+  padding: 16px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+header img {
+  width: 60px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.contenedor {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.cliente-info {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cliente-info input,
+.cliente-info select {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+h2 {
+  margin: 32px 0 16px;
+  color: #b22222;
+  font-family: 'Playfair Display', serif;
+  border-bottom: 2px solid #ff7043;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 12px;
+  flex-grow: 1;
+}
+
+.card-body h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.card-body p {
+  margin: 6px 0;
+  font-weight: 600;
+  color: #b22222;
+}
+
+.sabor-selector {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sabor-selector label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.sabor-selector select {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.cantidad-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.cantidad-control button {
+  background: #ff7043;
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cantidad-control button:hover {
+  background: #b22222;
+}
+
+.cantidad-control span {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.pago-container {
+  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#metodo-pago {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  max-width: 200px;
+  margin-top: 8px;
+}
+
+#alias {
+  margin-top: 8px;
+  font-weight: 600;
+  color: #b22222;
+}
+
+#total-container {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 28px 0;
+  padding: 12px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  color: #b22222;
+}
+
+button.enviar {
+  background: linear-gradient(90deg, #25d366, #128c7e);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto 40px;
+  transition: 0.3s;
+}
+
+button.enviar:hover {
+  transform: scale(1.05);
+}
+
+/* --- Estilos para Móviles (Responsive) --- */
+@media (max-width: 600px) {
+  header {
+    padding: 12px;
+  }
+
+  header h1 {
+    font-size: 1.5rem; /* Título más pequeño */
+  }
+
+  header img {
+    width: 50px; /* Logo más pequeño */
+  }
+
+  .contenedor {
+    margin-top: 16px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .cliente-info {
+    flex-direction: column; /* Asegura la dirección vertical */
+    align-items: stretch; /* Estira los items para ocupar el ancho */
+  }
+
+  .cliente-info label {
+    margin-bottom: -4px; /* Reduce el espacio entre la etiqueta y el input */
+  }
+
+  .card:hover {
+    transform: none; /* Desactiva el zoom en hover para móviles */
+  }
+
+  .menu-grid {
+    /* Reduce el tamaño mínimo de las tarjetas para que quepan mejor */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  #total-container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
