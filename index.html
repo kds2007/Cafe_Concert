@@ -4,418 +4,148 @@
   <meta charset="UTF-8">
   <title>Menú - Gracia Sublime</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<style>
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, #232526 0%, #414345 100%);
-  min-height: 100vh;
-  color: #f3f4f6;
-}
-
-.logo-container {
-  margin-top: 30px;
-  text-align: center;
-}
-
-img.logo {
-  max-width: 110px;
-  border-radius: 18px;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.18);
-  transition: transform 0.3s;
-}
-
-img.logo:hover {
-  transform: scale(1.08) rotate(-2deg);
-}
-
-.contenedor {
-  width: 100%;
-  max-width: 430px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-h1 {
-  font-size: 2.2rem;
-  color: #ff7043;
-  margin: 28px 0 18px 0;
-  font-weight: 800;
-  text-align: center;
-  letter-spacing: 1px;
-  text-shadow: 0 2px 8px #232526;
-}
-
-form {
-  background: #232526;
-  padding: 32px 18px 24px 18px;
-  border-radius: 22px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.30);
-  width: 100%;
-  margin-bottom: 80px;
-}
-
-label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #ff7043;
-  font-size: 1.08rem;
-}
-
-input[type="text"],
-input[type="number"],
-select,
-textarea {
-  width: 100%;
-  padding: 13px 14px;
-  margin-bottom: 18px;
-  border: 1.5px solid #444;
-  border-radius: 12px;
-  font-size: 1rem;
-  background-color: #2d2f31;
-  color: #f3f4f6;
-  transition: 0.3s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: #ff7043;
-  background-color: #232526;
-  outline: none;
-}
-
-button,
-input[type="submit"] {
-  background: linear-gradient(90deg, #43d17a 0%, #ff7043 100%);
-  color: #fff;
-  padding: 14px 0;
-  border: none;
-  border-radius: 14px;
-  font-size: 1.08rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.2s;
-  width: 80%;
-  margin: 0 auto;
-  box-shadow: 0 4px 16px rgba(67,209,122,0.12);
-  display: block;
-}
-
-button:hover,
-input[type="submit"]:hover {
-  background: linear-gradient(90deg, #ff7043 0%, #43d17a 100%);
-  transform: scale(1.04);
-}
-
-.menu-grid {
-  margin-bottom: 24px;
-}
-
-.menu-item {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 22px;
-  background: #2d2f31;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
-  padding: 14px 12px;
-  transition: box-shadow 0.2s;
-}
-
-.menu-item:hover {
-  box-shadow: 0 6px 24px rgba(67,209,122,0.18);
-}
-
-.menu-item img {
-  width: 90px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 0;
-  flex-shrink: 0;
-  border: 2px solid #444;
-  background: #232526;
-}
-
-.menu-item strong {
-  color: #43d17a;
-  font-size: 1.08rem;
-}
-
-.menu-item label {
-  color: #ff7043;
-  font-weight: 500;
-  margin-bottom: 4px;
-  font-size: 0.98rem;
-}
-
-.menu-item input[type="number"] {
-  width: 80px;
-  margin-top: 6px;
-  margin-bottom: 0;
-  background: #232526;
-  border: 1px solid #444;
-  color: #f3f4f6;
-}
-
-#total-container {
-  text-align: center;
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 22px;
-  color: #43d17a;
-  background: #2d2f31;
-  border-radius: 12px;
-  padding: 12px 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-}
-
-#alias {
-  background: #2d2f31;
-  color: #ff7043;
-  border-radius: 10px;
-  padding: 8px 0 8px 14px;
-  font-weight: 600;
-  margin-bottom: 18px;
-  font-size: 1.05rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-}
-
-.whatsapp-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 62px;
-  height: 62px;
-  font-size: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 24px rgba(37,211,102,0.18);
-  z-index: 999;
-  transition: 0.3s;
-  text-decoration: none;
-}
-
-.whatsapp-btn:hover {
-  background: linear-gradient(135deg, #128c7e 0%, #25d366 100%);
-  transform: scale(1.09);
-}
-@media (max-width: 600px) {
-  .contenedor {
-    max-width: 100vw;
-    width: 100vw;
-    padding: 0 0vw;
-  }
-  form {
-    padding: 18px 4px 18px 4px;
-    border-radius: 0;
-    box-shadow: none;
-    width: 100vw;
-  }
-  .menu-item {
-    gap: 8px;
-    padding: 8px 4px;
-    border-radius: 10px;
-  }
-  .menu-item img {
-    width: 48px;
-    height: 48px;
-  }
-  h1 {
-    font-size: 1.3rem;
-    margin: 18px 0 12px 0;
-  }
-  img.logo {
-    max-width: 60px;
-  }
-  button,
-  input[type="submit"] {
-    font-size: 1.1rem;
-    padding: 16px 0;
-    width: 100%;
-  }
-  input[type="text"],
-  input[type="number"],
-  select,
-  textarea {
-    font-size: 1.1rem;
-    padding: 16px 12px;
-  }
-  #total-container {
-    font-size: 1.08rem;
-    padding: 8px 0;
-  }
-}
-</style>
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="fade-in">
-  <a href="https://wa.me/5493764863019" class="whatsapp-btn" target="_blank">🟢</a>
 
-  <div class="logo-container">
-    <img src="fotos/logo.jpg" alt="Gracia Sublime" class="logo">
+<body>
+<header>
+  <img src="imagenes/logo.jpeg" alt="Logo Gracia Sublime">
+  <h1>Café Concert - Pedido de comida</h1>
+</header>
+
+<div class="contenedor">
+  <div class="cliente-info">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" placeholder="Tu nombre" required>
+
+    <label for="mesa">Mesa:</label>
+    <select id="mesa" required>
+      <option value="" disabled selected>Seleccioná tu mesa</option>
+      <option value="1">Mesa 1</option>
+      <option value="2">Mesa 2</option>
+      <option value="3">Mesa 3</option>
+      <option value="4">Mesa 4</option>
+      <option value="5">Mesa 5</option>
+      <option value="Entrada de la cocina">No tengo, recibo mi pedido en la entrada de la cocina</option>
+    </select>
   </div>
 
-  <div class="contenedor">
-    <h1>Pedido de Comida</h1>
-
-    <form id="pedidoForm">
-      <label>Nombre:
-        <input type="text" id="nombre" required>
-      </label>
-      <label>Mesa:
-        <input type="text" id="mesa" required>
-      </label>
-    
-<!-- Ejemplo para la sección Muzza -->
-<h2>Muzza - $5.500</h2>
-<div class="menu-grid">
-  <div class="menu-item muzza">
-    <img src="fotos/muzza.jpg" alt="Muzza">
-    <div>
-      <input type="number" class="cantidad" data-item="Muzza" data-precio="5500" min="0" value="0">
+  <h2>Comidas</h2>
+  <div class="menu-grid">
+    <div class="card">
+      <img src="imagenes/pizza.jpeg"alt="Muzza">
+      <div class="card-body">
+        <h3>Muzza</h3>
+        <p>$5.500</p>
+        <div class="cantidad-control" data-precio="5500" data-nombre="Muzza">
+          <button class="menos">-</button>
+          <span class="cantidad">0</span>
+          <button class="mas">+</button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-
-<!-- Ejemplo para Gaseosa 3lts -->
-<h2>Gaseosa 3lts - $2500</h2>
-<div class="menu-grid">
-  <div class="menu-item gaseosa">
-    <img src="fotos/gasesosa.jpg" alt="Gaseosa 3lts">
-    <div>
-      <label> Sabor:
-        <select class="sabor-gaseosa">
-          <option value="Cola">Cola</option>
-          <option value="Pomelo">Pomelo</option>
-          <option value="Manzana">Manzana</option>
-        </select>
-      </label>
-      <input type="number" class="cantidad" data-item="Cola" data-precio="2500" min="0" value="0">
-    </div>
-  </div>
-</div>
-
-<!-- Ejemplo para Promos/Combos -->
-<h2>Promos/Combos</h2>
-<div class="menu-grid">
-  <div class="menu-item pizza-vaso">
-    <img src="fotos/promo1.jpg" alt="Promo Pizza + Gaseosa">
-    <div>
-      <strong>Promo 1:</strong><br>1 Porción de pizza + 1 Vaso de gaseosa - <strong>$1.500</strong>
-      <label> Sabor:
-        <select class="sabor-gaseosa">
-          <option value="Cola">Cola</option>
-          <option value="Pomelo">Pomelo</option>
-          <option value="Manzana">Manzana</option>
-        </select>
-      </label>
-      <input type="number" class="cantidad" data-item="Promo Pizza + Gaseosa" data-precio="1500" min="0" value="0">
+    <div class="card">
+      <img src="imagenes/papas.png" alt="Papas fritas">
+      <div class="card-body">
+        <h3>Papas fritas</h3>
+        <p>$6.200</p>
+        <div class="cantidad-control" data-precio="6200" data-nombre="Papas fritas">
+          <button class="menos">-</button>
+          <span class="cantidad">0</span>
+          <button class="mas">+</button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="menu-item pancho-vaso">
-    <img src="fotos/promo2.jpg" alt="Promo Pancho + Gaseosa">
-    <div>
-      <strong>Promo 2:</strong><br>1 Pancho + Vaso de gaseosa - <strong>$2.000</strong>
-      <input type="number" class="cantidad" data-item="Pancho + Vaso de gaseosa " data-precio="2000" min="0" value="0">
+  <h2>Bebidas</h2>
+  <div class="menu-grid">
+    <div class="card">
+      <img src="imagenes/bebidas.png" alt="Gaseosa 3L">
+      <div class="card-body">
+        <h3>Gaseosa</h3>
+        <p>$2.500</p>
+        <div class="sabor-selector">
+          <label>Sabor:</label>
+          <select class="sabor-select">
+            <option value="Cola">Cola</option>
+            <option value="Manzana">Manzana</option>
+            <option value="Naranja">Naranja</option>
+            <option value="Pomelo">Pomelo</option>
+          </select>
+        </div>
+        <div class="cantidad-control" data-precio="2500" data-nombre="Gaseosa 3L">
+          <button class="menos">-</button>
+          <span class="cantidad">0</span>
+          <button class="mas">+</button>
+        </div>
+      </div>
     </div>
   </div>
+
+  <h2>Promos</h2>
+  <div class="menu-grid">
+    <div class="card">
+      <img src="imagenes/promo1.jpg" alt="Promo Porción de pizza + Vaso de gaseosa">
+      <div class="card-body">
+        <h3>Promo: Porción de pizza + Vaso de gaseosa</h3>
+        <p>$1.500</p>
+        <div class="sabor-selector">
+          <label>Sabor Gaseosa:</label>
+          <select class="sabor-select">
+            <option value="Cola">Cola</option>
+            <option value="Manzana">Manzana</option>
+            <option value="Naranja">Naranja</option>
+            <option value="Pomelo">Pomelo</option>
+          </select>
+        </div>
+        <div class="cantidad-control" data-precio="1500" data-nombre="Promo Pizza + Gaseosa">
+          <button class="menos">-</button>
+          <span class="cantidad">0</span>
+          <button class="mas">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="imagenes/promo2.jpg" alt="Promo Papas + Vaso de gaseosa">
+      <div class="card-body">
+        <h3>Promo: Papas + Vaso de gaseosa</h3>
+        <p>$2.000</p>
+        <div class="sabor-selector">
+          <label>Sabor Gaseosa:</label>
+          <select class="sabor-select">
+            <option value="Cola">Cola</option>
+            <option value="Manzana">Manzana</option>
+            <option value="Naranja">Naranja</option>
+            <option value="Pomelo">Pomelo</option>
+          </select>
+        </div>
+        <div class="cantidad-control" data-precio="2000" data-nombre="Promo Papas + Gaseosa">
+          <button class="menos">-</button>
+          <span class="cantidad">0</span>
+          <button class="mas">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="total-container">Total: $0</div>
+
+  <div class="pago-container">
+    <label for="metodo-pago">Método de pago:</label>
+    <select id="metodo-pago">
+      <option value="">Seleccionar</option>
+      <option value="Efectivo">Efectivo</option>
+      <option value="MercadoPago">MercadoPago</option>
+    </select>
+    <div id="alias" style="display:none;">Alias: cofee.concert</div>
+  </div>
+
+  <button class="enviar">Enviar pedido por WhatsApp</button>
 </div>
 
-<label>Método de pago:
-  <select id="pago" required>
-    <option value="">Seleccionar</option>
-    <option value="Efectivo">Efectivo</option>
-    <option value="MercadoPago">MercadoPago</option>
-  </select>
-</label>
-<div id="alias" style="display:none; margin-bottom:20px;">
-  Alias: cofee.concert
-</div>
-
-<div id="total-container" style="text-align:center; font-size:1.2rem; font-weight:600; margin-bottom:20px;">
-  Total a pagar: $<span id="total-pagar">0</span>
-</div>
-<div style="text-align:center;">
-  <button type="submit">Enviar pedido por WhatsApp</button>
-</div>
-</form>
-
-</div>
-<script>
-const form = document.getElementById('pedidoForm');
-const aliasDiv = document.getElementById('alias');
-const metodoPago = document.getElementById('pago');
-
-metodoPago.addEventListener('change', () => {
-  // Solo muestra el alias si es MercadoPago
-  aliasDiv.style.display = (metodoPago.value === "MercadoPago") ? "block" : "none";
-});
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  const nombre = document.getElementById('nombre').value.trim();
-  const mesa = document.getElementById('mesa').value.trim();
-  const pago = metodoPago.value;
-  const aliasTexto = (pago === "MercadoPago") ? "\nAlias: cofee.concert" : "";
-
-  if (!nombre || !mesa) {
-    alert("Por favor completá tu nombre y número de mesa.");
-    return;
-  }
-
-  let pedido = "";
-  let total = 0;
-  document.querySelectorAll('.cantidad').forEach(input => {
-    const cantidad = parseInt(input.value);
-    const item = input.dataset.item;
-    const precio = parseInt(input.dataset.precio) || 0;
-    if (cantidad > 0) {
-      pedido += `- ${cantidad} x ${item}\n`;
-      total += cantidad * precio;
-    }
-  });
-
-  if (!pedido) {
-    alert("Seleccioná al menos un producto con cantidad mayor a 0.");
-    return;
-  }
-
-  const mensaje = `Hola! Soy ${nombre}, mesa ${mesa}.\nMi pedido es:\n${pedido}\nTotal a pagar: $${total}\nPago con: ${pago}${aliasTexto}`;
-  const url = `https://wa.me/5493764187877?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, '_blank');
-});
-
-// --- TOTAL EN TIEMPO REAL ---
-function actualizarTotal() {
-  let total = 0;
-  document.querySelectorAll('.cantidad').forEach(input => {
-    const cantidad = parseInt(input.value) || 0;
-    const precio = parseInt(input.dataset.precio) || 0;
-    total += cantidad * precio;
-  });
-  document.getElementById('total-pagar').textContent = total;
-}
-
-document.querySelectorAll('.cantidad').forEach(input => {
-  input.addEventListener('input', actualizarTotal);
-});
-
-actualizarTotal();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
